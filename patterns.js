@@ -87,7 +87,7 @@ const iNV = (n) => {
   let ans = "";
   for (let i = n; i >= 1; i--) {
     const space = " ".repeat(n - i);
-    const star = " ".repeat(i * 2 - 1);
+    const star = "*".repeat(i * 2 - 1);
     ans += space + star + "\n";
   }
   return ans;
