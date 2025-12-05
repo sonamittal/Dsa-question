@@ -11,6 +11,7 @@ const rSP = (n) => {
   return ans;
 };
 console.log(rSP(5));
+
 // Right-Angled Triangle Pattern
 const rAT = (n) => {
   let ans = "";
@@ -23,6 +24,7 @@ const rAT = (n) => {
   return ans;
 };
 console.log(rAT(5));
+
 // Right-Angled Number Pyramid
 const rAPN = (n) => {
   let ans = "";
@@ -35,6 +37,7 @@ const rAPN = (n) => {
   return ans;
 };
 console.log(rAPN(5));
+
 //Right-Angled Number Pyramid - II
 const rANPSecond = (n) => {
   let ans = "";
@@ -47,6 +50,7 @@ const rANPSecond = (n) => {
   return ans;
 };
 console.log(rANPSecond(5));
+
 //Inverted Right Pyramid
 const iRP = (n) => {
   let ans = "";
@@ -59,6 +63,7 @@ const iRP = (n) => {
   return ans;
 };
 console.log(iRP(5));
+
 // Inverted Numbered Right Pyramid
 const iNRP = (n) => {
   let ans = "";
@@ -71,6 +76,7 @@ const iNRP = (n) => {
   return ans;
 };
 console.log(iNRP(5));
+
 // Star Pyramid
 const sP = (n) => {
   let ans = "";
@@ -82,6 +88,7 @@ const sP = (n) => {
   return ans;
 };
 console.log(sP(5));
+
 //Inverted Star Pyramid
 const iNV = (n) => {
   let ans = "";
@@ -93,3 +100,31 @@ const iNV = (n) => {
   return ans;
 };
 console.log(iNV(5));
+
+// Diamond Star Pattern
+const dSP = (n) => {
+  return sP(n) + iNV(n);
+};
+console.log(dSP(5));
+
+//Half Diamond Star Pattern
+const hDSP = (n) => {
+  return rAT(n) + iRP(n);
+};
+console.log(hDSP(5));
+
+// Binary Number Triangle Pattern
+const bNTP = (n) => {
+  let ans = "";
+  for (let i = 0; i < n; i++) {
+    let row = "";
+    let bit = i % 2 == 0 ? 1 : 0;
+    for (let j = 0; j <= i; j++) {
+      row += bit;
+      bit = 1 - bit;
+    }
+    ans += row + "\n";
+  }
+  return ans;
+};
+console.log(bNTP(5));
