@@ -28,7 +28,7 @@ console.log(rAT(5));
 // Right-Angled Number Pyramid
 const rAPN = (n) => {
   let ans = "";
-  for (i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     for (j = 1; j <= i + 1; j++) {
       ans += j;
     }
@@ -41,7 +41,7 @@ console.log(rAPN(5));
 //Right-Angled Number Pyramid - II
 const rANPSecond = (n) => {
   let ans = "";
-  for (i = 0; i <= n; i++) {
+  for (let i = 0; i <= n; i++) {
     for (let j = 1; j <= i; j++) {
       ans += i;
     }
@@ -67,7 +67,7 @@ console.log(iRP(5));
 // Inverted Numbered Right Pyramid
 const iNRP = (n) => {
   let ans = "";
-  for (i = n; i >= 0; i--) {
+  for (let i = n; i >= 0; i--) {
     for (let j = 1; j <= i; j++) {
       ans += j;
     }
@@ -128,3 +128,18 @@ const bNTP = (n) => {
   return ans;
 };
 console.log(bNTP(5));
+
+// Increasing Number Triangle Pattern
+const iNTP = (n) => {
+  let ans = "";
+  let add = 1;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j <= i; j++) {
+      ans += add + " ";
+      add++;
+    }
+    ans += "\n";
+  }
+  return ans;
+};
+console.log(iNTP(5));
