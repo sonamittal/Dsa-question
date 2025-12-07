@@ -143,3 +143,45 @@ const iNTP = (n) => {
   return ans;
 };
 console.log(iNTP(5));
+
+// Increasing Letter Triangle Pattern
+const iLTP = (n) => {
+  let ans = "";
+  for (let i = 0; i < n; i++) {
+    let char = "";
+    for (let j = 0; j <= i; j++) {
+      char += String.fromCharCode(65 + j);
+    }
+    ans += char + "\n";
+  }
+  return ans;
+};
+console.log(iLTP(5));
+
+//Reverse Letter Triangle Pattern
+const rLTP = (n) => {
+  let ans = "";
+  for (let i = n; i >= 0; i--) {
+    let char = "";
+    for (let j = 0; j < i; j++) {
+      char += String.fromCharCode(65 + j);
+    }
+    ans += char + "\n";
+  }
+  return ans;
+};
+console.log(rLTP(5));
+
+//Alpha-Ramp Pattern
+const aRP = (n) => {
+  let ans = "";
+  for (let i = 0; i < n; i++) {
+    let char = "";
+    for (let j = 0; j <= i; j++) {
+      char += String.fromCharCode(65 + i);
+    }
+    ans += char + "\n";
+  }
+  return ans;
+};
+console.log(aRP(5));
