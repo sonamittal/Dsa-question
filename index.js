@@ -172,3 +172,23 @@ const armstrongNm = (n) => {
 };
 armstrongNm(153);
 armstrongNm(27);
+
+// Find Greatest Common Divisor of Array
+var findGCD = function (nums) {
+  let min = nums[0];
+  let max = nums[0];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] < min) min = nums[i];
+    if (nums[i] > max) max = nums[i];
+  }
+  const gCD = function (a, b) {
+    while (b != 0) {
+      let r = a % b;
+      a = b;
+      b = r;
+    }
+    return a;
+  };
+  return gCD(min, max);
+};
+console.log(findGCD([2, 5, 6, 9, 10]));
