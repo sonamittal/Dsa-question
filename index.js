@@ -156,18 +156,16 @@ const armstrongNm = (n) => {
   let pow = 3;
   let sm = 0;
   while (n > 0) {
-    while (n > 0) {
-      let digit = n % 10;
-      sm = sm + Math.pow(digit, pow);
-      n = Math.floor(n / 10);
-    }
-    if (x == sm) {
-      console.log("amstrong nmber is:", x);
-      return true;
-    } else {
-      console.log("not amstrong nmber is:", x);
-      return false;
-    }
+    let digit = n % 10;
+    sm = sm + Math.pow(digit, pow);
+    n = Math.floor(n / 10);
+  }
+  if (x == sm) {
+    console.log("amstrong nmber is:", x);
+    return true;
+  } else {
+    console.log("not amstrong nmber is:", x);
+    return false;
   }
 };
 armstrongNm(153);
@@ -192,3 +190,16 @@ var findGCD = function (nums) {
   return gCD(min, max);
 };
 console.log(findGCD([2, 5, 6, 9, 10]));
+
+//Divisors of a Number
+const divisors = (n) => {
+  const res = [];
+  for (let i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      res.push(i);
+    }
+  }
+  console.log(res);
+  return res.length === 3;
+};
+console.log(divisors(4));
