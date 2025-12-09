@@ -191,7 +191,7 @@ var findGCD = function (nums) {
 };
 console.log(findGCD([2, 5, 6, 9, 10]));
 
-//Divisors of a Number
+// three Divisors of a Number
 const divisors = (n) => {
   const res = [];
   for (let i = 1; i <= n; i++) {
@@ -203,3 +203,22 @@ const divisors = (n) => {
   return res.length === 3;
 };
 console.log(divisors(4));
+
+// perfect Number
+const perfectNm = (n) => {
+  let res = n;
+  let total = 0;
+  for (let i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      total = total + i;
+    }
+  }
+  if (res == total) {
+    console.log("perfect nm is:", res);
+    return true;
+  } else {
+    console.log("perfect nm is:", res);
+    return false;
+  }
+};
+perfectNm(28);
