@@ -72,3 +72,22 @@ const removeDuplicatesArray = (n) => {
 const arr = [1, 1, 2];
 const k = removeDuplicatesArray(arr);
 console.log(arr.splice(0, k));
+
+// second largest nmber
+const secondLarNm = (nums) => {
+  let max = 0;
+  let secondLar = 0;
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] > max) {
+      max = nums[i];
+    }
+    // second codition
+    for (let i = 1; i < nums.length; i++) {
+      if (nums[i] > secondLar && max !== nums[i]) {
+        secondLar = nums[i];
+      }
+    }
+  }
+  return secondLar;
+};
+console.log(secondLarNm([8, 8, 7, 5, 6]));
