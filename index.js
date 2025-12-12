@@ -103,15 +103,7 @@ const reverseAnArray = () => {
   console.log("reverse an array:", rev);
 };
 reverseAnArray();
-// // const reverseArr = () => {
-// //   n = [1, 2, 4];
-// //   let rev = [];
-// //   for (i = n.length - 1; i >= 0; i--) {
-// //    rev.push(n[i]);
-// //   }
-// //   console.log(rev);
-// // };
-// reverseArr();
+
 // palindrome number check
 const isPalindromeNum = (num) => {
   let x = num;
@@ -194,9 +186,12 @@ console.log(findGCD([2, 5, 6, 9, 10]));
 // three Divisors of a Number
 const divisors = (n) => {
   const res = [];
-  for (let i = 1; i <= n; i++) {
+  for (let i = 1; i * i <= n; i++) {
     if (n % i == 0) {
       res.push(i);
+    }
+    if (i !== n / i) {
+      res.push(n / i);
     }
   }
   console.log(res);
@@ -206,14 +201,18 @@ console.log(divisors(4));
 
 // perfect Number
 const perfectNm = (n) => {
+  if (n <= 1) return false;
   let res = n;
-  let total = 0;
-  for (let i = 1; i <= n; i++) {
+  let total = 1;
+  for (let i = 2; i * i <= n; i++) {
     if (n % i == 0) {
       total = total + i;
+      if (i !== n / i) {
+        total += n / i;
+      }
     }
   }
-  if (res == total) {
+  if (res === total) {
     console.log("perfect nm is:", res);
     return true;
   } else {

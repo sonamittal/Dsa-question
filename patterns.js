@@ -186,4 +186,5 @@ const aRP = (n) => {
 };
 console.log(aRP(5));
 
-// 
+// Alpha-Hill Pattern
+
