@@ -43,19 +43,19 @@ const sumOfElement = (nums) => {
 console.log(sumOfElement([8, 9, 6, 12]));
 
 // Remove duplicates from Sorted array (extra space new array return)
-const removeDuplicates = (nums) => {
-  let newArray = [nums[0]];
-  let k = 0;
-  for (let i = 1; i < nums.length; i++) {
-    if (newArray[k] !== nums[i]) {
-      k = k + 1;
-      newArray.push(nums[i]);
-    }
-  }
-  return newArray;
-};
+// const removeDuplicates = (nums) => {
+//   let newArray = [nums[0]];
+//   let k = 0;
+//   for (let i = 1; i < nums.length; i++) {
+//     if (newArray[k] !== nums[i]) {
+//       k = k + 1;
+//       newArray.push(nums[i]);
+//     }
+//   }
+//   return newArray;
+// };
 
-console.log(removeDuplicates([0, 0, 3, 3, 5, 6]));
+// console.log(removeDuplicates([0, 0, 3, 3, 5, 6]));
 
 //  Remove duplicates from Sorted array in place
 const removeDuplicatesArray = (n) => {
@@ -69,6 +69,6 @@ const removeDuplicatesArray = (n) => {
   }
   return k + 1;
 };
-const arr = [0, 0, 3, 3, 5, 6];
+const arr = [1, 1, 2];
 const k = removeDuplicatesArray(arr);
 console.log(arr.splice(0, k));
