@@ -83,7 +83,7 @@ const secondLarNm = (nums) => {
     }
     // second codition
     for (let i = 1; i < nums.length; i++) {
-      if (nums[i] > secondLar && max !== nums[i]) {
+      if (nums[i] > secondLar && nums[i] !== max) {
         secondLar = nums[i];
       }
     }
