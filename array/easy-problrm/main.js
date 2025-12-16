@@ -91,3 +91,48 @@ const secondLarNm = (nums) => {
   return secondLar;
 };
 console.log(secondLarNm([8, 8, 7, 5, 6]));
+
+// two sm sorted array
+const twoSm = (n, target) => {
+  let start = 0;
+  let end = n.length - 1;
+  while (start < end) {
+    let crrSm = n[start] + n[end];
+    if (crrSm === target) {
+      return [n[start], n[end]];
+    } else if (crrSm < target) {
+      start++;
+    } else {
+      end--;
+    }
+  }
+  return null;
+};
+console.log(twoSm([2, 7, 11, 15], 17));
+
+//  check if Sort an Array
+const sortArray = (nums) => {
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] > nums[i + 1]) {
+      return false;
+    }
+  }
+  return true;
+};
+console.log(sortArray([5, 2, 3, 1]));
+console.log(sortArray([1, 2, 3, 4]));
+
+// Move Zeroes
+const moveZeroes = (nums) => {
+  let j = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      let temp = nums[i];
+      nums[i] = nums[j];
+      nums[j] = temp;
+      j++;
+    }
+  }
+  return nums;
+};
+console.log(moveZeroes([0, 1, 0, 3, 12]));
