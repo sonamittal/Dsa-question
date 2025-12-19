@@ -136,3 +136,18 @@ const moveZeroes = (nums) => {
   return nums;
 };
 console.log(moveZeroes([0, 1, 0, 3, 12]));
+
+// Check if Array Is Sorted and Rotated
+const check = (nums) => {
+  let count = 0;
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] > nums[i + 1]) {
+      count++;
+    }
+  }
+  if (nums[nums.length - 1] > nums[0]) {
+    count++;
+  }
+  return count <= 1;
+};
+console.log(check([3, 4, 5, 1, 2]));
