@@ -151,3 +151,25 @@ const check = (nums) => {
   return count <= 1;
 };
 console.log(check([3, 4, 5, 1, 2]));
+// if rotate array
+const reverse = (nums, left, right) => {
+  while (left < right) {
+    let temp = nums[left];
+    nums[left] = nums[right];
+    nums[right] = temp;
+    left++;
+    right--;
+  }
+};
+const rotate = (nums, k) => {
+  let n = nums.length;
+  k = k % n;
+  // step 1 : reverse whole array
+  reverse(nums, 0, n - 1);
+  // step2: reverse  first k elements
+  reverse(nums, 0, k - 1);
+  // ste 3 : reverse remaining elements
+  reverse(nums, k, n - 1);
+  return nums;
+};
+console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
