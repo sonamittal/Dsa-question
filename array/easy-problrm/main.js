@@ -151,7 +151,7 @@ const check = (nums) => {
   return count <= 1;
 };
 console.log(check([3, 4, 5, 1, 2]));
-// if rotate array
+// if rotate array (optimized approach)
 const reverse = (nums, left, right) => {
   while (left < right) {
     let temp = nums[left];
@@ -173,3 +173,39 @@ const rotate = (nums, k) => {
   return nums;
 };
 console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
+
+// if rotate array ( withot optimized approach extra space)
+const rotateArr = (nums, k) => {
+  let n = nums.length;
+  k = k % n;
+  let result = [];
+  for (let i = 0; i < n; i++) {
+    let temp = (i + k) % n;
+    result[temp] = nums[i];
+  }
+  return result;
+};
+console.log(rotateArr([1, 2, 3, 4, 5, 6, 7], 3));
+
+// Left Rotate Array by K Places
+const reverseArr = (nums, left, right) => {
+  while (left < right) {
+    let temp = nums[left];
+    nums[left] = nums[right];
+    nums[right] = temp;
+    left++;
+    right--;
+  }
+};
+const rotateArray = (nums, k) => {
+  let n = nums.length;
+  k = k % n;
+  // step 1 :reverse  first k elements
+  reverseArr(nums, 0, k - 1);
+  // step2: reverse remaining elements
+  reverseArr(nums, k, n - 1);
+  // step 3 : reverse whole array
+  reverseArr(nums, 0, n - 1);
+  return nums;
+};
+console.log(rotateArray([1, 2, 3, 4, 5], 2));
