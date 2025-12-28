@@ -209,3 +209,42 @@ const rotateArray = (nums, k) => {
   return nums;
 };
 console.log(rotateArray([1, 2, 3, 4, 5], 2));
+
+// qick sort Algorithm
+const quickSort = (nums, left = 0, right = nums.length - 1) => {
+  if (left < right) {
+    const partionIndex = partition(nums, left, right);
+    // sort left element
+    quickSort(nums, left, partionIndex - 1);
+    // sort right element
+    quickSort(nums, partionIndex + 1, right);
+  }
+  return nums;
+};
+const partition = (nums, left, right) => {
+  const randomIndex = left + Math.floor(Math.random() * (right - left + 1));
+  let temp = nums[left];
+  nums[left] = nums[randomIndex];
+  nums[randomIndex] = temp;
+  let pivot = nums[left];
+  let i = left + 1;
+  let j = right;
+  while (i <= j) {
+    if (nums[i] < pivot) {
+      i++;
+    } else if (nums[j] > pivot) {
+      j--;
+    } else {
+      temp = nums[i];
+      nums[i] = nums[j];
+      nums[j] = temp;
+      i++;
+      j--;
+    }
+  }
+  temp = nums[left];
+  nums[left] = nums[j];
+  nums[j] = temp;
+  return j;
+};
+console.log(quickSort([8, 3, 1, 7, 0, 10, 2]));
