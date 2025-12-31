@@ -221,3 +221,32 @@ const perfectNm = (n) => {
   }
 };
 perfectNm(28);
+
+// Missing Number (guss trick)
+// const missingNum = (nums) => {
+//   let n = nums.length;
+//   let expextedValue = (n * (n + 1)) / 2; 
+//   let actualVal = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     actualVal = actualVal + nums[i];
+//   }
+//   return expextedValue - actualVal;
+// };
+// console.log(missingNum([3, 0, 1]));
+
+
+// missing number Xor method
+const missingNumber = (nums)=>{
+  n = nums.length
+  let xorNm = 0;
+  let xorArr = 0;
+  for(let i = 1 ; i <=n ; i++){
+    xorNm = xorNm ^ i;
+  }
+
+  for(let i = 0 ; i<nums.length ; i++){
+    xorArr = xorArr ^ nums[i]
+  }
+  return xorNm ^ xorArr ;
+}
+console.log(missingNumber([3, 0, 1]));
