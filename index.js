@@ -243,10 +243,10 @@ const missingNumber = (nums)=>{
   for(let i = 1 ; i <=n ; i++){
     xorNm = xorNm ^ i;
   }
-
   for(let i = 0 ; i<nums.length ; i++){
     xorArr = xorArr ^ nums[i]
   }
   return xorNm ^ xorArr ;
 }
 console.log(missingNumber([3, 0, 1]));
+

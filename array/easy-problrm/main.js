@@ -259,6 +259,7 @@ const mergeSort = (nums, left = 0, right = nums.length - 1) => {
     mergeSort(nums, midIndex + 1, right);
     merge(nums, left, midIndex, right);
   }
+  return nums;
 };
 const merge = (nums, left, midIndex, right) => {
   let i = left;
@@ -273,9 +274,12 @@ const merge = (nums, left, midIndex, right) => {
       j++;
     }
   }
+  // copy remaining elements
+  while (i <= midIndex) temp.push(nums[i++]);
+  while (j <= right) temp.push(nums[j++]);
+
   for (let k = 0; k < temp.length; k++) {
     nums[left + k] = temp[k];
   }
-  return nums;
 };
-console.log(merge([1, 2, 2, 3, 5, 6]));
+console.log(mergeSort([70, 30, 50, 40]));
