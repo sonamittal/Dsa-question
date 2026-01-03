@@ -248,3 +248,34 @@ const partition = (nums, left, right) => {
   return j;
 };
 console.log(quickSort([8, 3, 1, 7, 0, 10, 2]));
+
+// merge sort Algorithm
+const mergeSort = (nums, left = 0, right = nums.length - 1) => {
+  if (left < right) {
+    const midIndex = Math.floor(left + (right-left)/2);
+    // sort left half
+    mergeSort(nums, left, midIndex);
+    // sort right half
+    mergeSort(nums, midIndex + 1, right);
+    merge(nums , left , midIndex , right)
+  }
+};
+const merge = (nums , left , midIndex , right)=>{
+let i = left;
+let j = midIndex+1;
+let temp = []
+while(i <= midIndex && j <=right){
+  if(nums[i] < nums[j]){
+    temp.push(nums[i]);
+    i++;
+  }else{
+    temp.push(nums[j]);
+    j++;
+  }
+}
+for(let k = 0 ; k<temp.length ; k++){
+  nums[left+k] = temp[k];
+}
+return nums;
+}
+console.log(merge([1,2,2,3,5,6]))
