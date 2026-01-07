@@ -283,3 +283,29 @@ const merge = (nums, left, midIndex, right) => {
   }
 };
 console.log(mergeSort([70, 30, 50, 40]));
+
+// majority element
+const majorityElement = (nums) => {
+  let ans = 0;
+  let count = 0;
+  // final candidate
+  for (let i = 0; i < nums.length; i++) {
+    if (count == 0) {
+      ans = nums[i];
+    }
+    if (ans == nums[i]) {
+      count++;
+    } else {
+      count--;
+    }
+  }
+  // verify candidate
+  count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (ans == nums[i]) {
+      count++;
+    }
+  }
+  return count > Math.floor(nums.length / 2) ? ans : null;
+};
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
