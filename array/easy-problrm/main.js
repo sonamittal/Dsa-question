@@ -284,7 +284,7 @@ const merge = (nums, left, midIndex, right) => {
 };
 console.log(mergeSort([70, 30, 50, 40]));
 
-// majority element
+// majority element (best approach - Boyer–Moore Voting Algorithm (tc - o(n) and  sc - o(1)))
 const majorityElement = (nums) => {
   let ans = 0;
   let count = 0;
@@ -292,6 +292,7 @@ const majorityElement = (nums) => {
   for (let i = 0; i < nums.length; i++) {
     if (count == 0) {
       ans = nums[i];
+      count = 1;
     }
     if (ans == nums[i]) {
       count++;
@@ -309,3 +310,22 @@ const majorityElement = (nums) => {
   return count > Math.floor(nums.length / 2) ? ans : null;
 };
 console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+
+// majority element (tc = o(n2) or spcae complexity = o(1))
+const mElemrnt = (nums) => {
+  let n = nums.length;
+  for (let i = 0; i < nums.length; i++) {
+    let count = 0;
+    for (let j = 0; j < nums.length; j++) {
+      if (nums[i] === nums[j]) {
+        count++;
+      }
+    }
+    // check the majority elemnts
+    if (count > n / 2) {
+      return nums[i];
+    }
+  }
+  return null;
+};
+console.log(mElemrnt([1, 2, 2, 1, 1, 2, 1]));

@@ -250,4 +250,3 @@ const missingNumber = (nums) => {
   return xorNm ^ xorArr;
 };
 console.log(missingNumber([3, 0, 1]));
-
