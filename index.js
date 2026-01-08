@@ -267,4 +267,13 @@ const freqencyEle = (nums) => {
 console.log(
   freqencyEle(["apple", "banana", "apple", "orange", "banana", "apple"])
 );
- 
+
+// find the unique elements
+const uniqeElemts = (nums) => {
+  let xor = 0;
+  for (let i = 0; i < nums.length; i++) {
+    xor = xor ^ nums[i];
+  }
+  return xor;
+};
+console.log(uniqeElemts([1, 1, 2]));
