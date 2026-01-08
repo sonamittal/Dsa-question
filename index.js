@@ -250,3 +250,21 @@ const missingNumber = (nums) => {
   return xorNm ^ xorArr;
 };
 console.log(missingNumber([3, 0, 1]));
+
+// freqency of elemnts
+const freqencyEle = (nums) => {
+  let freq = {};
+  for (let i = 0; i < nums.length; i++) {
+    item = nums[i];
+    if (freq[item]) {
+      freq[item]++;
+    } else {
+      freq[item] = 1;
+    }
+  }
+  return freq;
+};
+console.log(
+  freqencyEle(["apple", "banana", "apple", "orange", "banana", "apple"])
+);
+ 
