@@ -329,3 +329,15 @@ const mElemrnt = (nums) => {
   return null;
 };
 console.log(mElemrnt([1, 2, 2, 1, 1, 2, 1]));
+
+// Range Sum Query - Immutable
+const smOfRange = (nums, left, right) => {
+  let prefix = [0];
+  for (let i = 0; i < nums.length; i++) {
+    prefix[i + 1] = prefix[i] + nums[i];
+  }
+  return prefix[right + 1] - prefix[left];
+};
+console.log(smOfRange([-2, 0, 3, -5, 2, -1], 0, 2));
+console.log(smOfRange([-2, 0, 3, -5, 2, -1], 2, 5));
+console.log(smOfRange([-2, 0, 3, -5, 2, -1], 0, 5));

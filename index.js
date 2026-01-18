@@ -255,7 +255,7 @@ console.log(missingNumber([3, 0, 1]));
 const freqencyEle = (nums) => {
   let freq = {};
   for (let i = 0; i < nums.length; i++) {
-    item = nums[i];
+    let item = nums[i];
     if (freq[item]) {
       freq[item]++;
     } else {
@@ -265,7 +265,7 @@ const freqencyEle = (nums) => {
   return freq;
 };
 console.log(
-  freqencyEle(["apple", "banana", "apple", "orange", "banana", "apple"])
+  freqencyEle(["apple", "banana", "apple", "orange", "banana", "apple"]),
 );
 
 // find the unique elements
@@ -277,3 +277,25 @@ const uniqeElemts = (nums) => {
   return xor;
 };
 console.log(uniqeElemts([1, 1, 2]));
+
+//  Unique Number of Occurrences
+const uniqueNumOfOcc = (nums) => {
+  const map = new Map();
+  for (let item of nums) {
+    if (map.has(item)) {
+      map.set(item, map.get(item) + 1);
+    } else {
+      map.set(item, 1);
+    }
+  }
+  const uniqueFrq = new Set();
+  for (let count of map.values()) {
+    if (uniqueFrq.has(count)) {
+      return false;
+    } else {
+      uniqueFrq.add(count);
+    }
+  }
+  return true;
+};
+console.log(uniqueNumOfOcc([1, 2]));
