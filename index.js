@@ -278,6 +278,8 @@ const uniqeElemts = (nums) => {
 };
 console.log(uniqeElemts([1, 1, 2]));
 
+/* Hasmap qestions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 //  Unique Number of Occurrences
 const uniqueNumOfOcc = (nums) => {
   const map = new Map();
@@ -299,3 +301,21 @@ const uniqueNumOfOcc = (nums) => {
   return true;
 };
 console.log(uniqueNumOfOcc([1, 2]));
+
+// contiguous array
+const findMaxLength = (nums) => {
+  let fmlMap = new Map();
+  let sum = 0;
+  let maxLen = 0;
+  fmlMap.set(0, -1);
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i] === 0 ? -1 : 1;
+    if (fmlMap.has(sum)) {
+      maxLen = Math.max(maxLen, i - fmlMap.get(sum));
+    } else {
+      fmlMap.set(sum, i);
+    }
+  }
+  return maxLen;
+};
+console.log(findMaxLength([0, 1, 1, 1, 1, 1, 0, 0, 0]));
