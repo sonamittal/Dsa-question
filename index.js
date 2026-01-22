@@ -319,3 +319,24 @@ const findMaxLength = (nums) => {
   return maxLen;
 };
 console.log(findMaxLength([0, 1, 1, 1, 1, 1, 0, 0, 0]));
+
+// valid anagram
+const validAnagram = (str1, str2) => {
+  // check if length are diffrent
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  let count = new Array(26).fill(0);
+  for (let i = 0; i < str1.length; i++) {
+    count[str1.charCodeAt(i) - 97]++;
+    count[str2.charCodeAt(i) - 97]--;
+  }
+  for (let i = 0; i < 26; i++) {
+    if (count[i] !== 0) {
+      return false;
+    }
+  }
+  return true;
+};
+console.log(validAnagram("anagram", "nagaram"));
+console.log(validAnagram("rat", "car"));
