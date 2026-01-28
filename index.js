@@ -328,10 +328,12 @@ const validAnagram = (str1, str2) => {
   }
   let count = new Array(26).fill(0);
   for (let i = 0; i < str1.length; i++) {
-    count[str1.charCodeAt(i) - 97]++;
-    count[str2.charCodeAt(i) - 97]--;
+    let char1 = str1.charCodeAt(i) - 97;
+    let char2 = str2.charCodeAt(i) - 97;
+    count[char1]++;
+    count[char2]--;
   }
-  for (let i = 0; i < 26; i++) {
+  for (let i = 0; i < count.length; i++) {
     if (count[i] !== 0) {
       return false;
     }
@@ -340,3 +342,5 @@ const validAnagram = (str1, str2) => {
 };
 console.log(validAnagram("anagram", "nagaram"));
 console.log(validAnagram("rat", "car"));
+
+

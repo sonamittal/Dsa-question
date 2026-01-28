@@ -342,4 +342,63 @@ console.log(smOfRange([-2, 0, 3, -5, 2, -1], 0, 2));
 console.log(smOfRange([-2, 0, 3, -5, 2, -1], 2, 5));
 console.log(smOfRange([-2, 0, 3, -5, 2, -1], 0, 5));
 
+//  Longest Substring Without Repeating Characters
+const lengthOfLongestSubstring = (arr) => {
+  let i = 0;
+  let j = 0;
+  let maxL = 0;
+  let newArr = new Array(128).fill(0);
+  while (j < arr.length) {
+    let charCode = arr.charCodeAt(j);
+    while (newArr[charCode] === 1) {
+      newArr[arr.charCodeAt(i)] = 0;
+      i++;
+    }
+    newArr[charCode] = 1;
+    maxL = Math.max(maxL, j - i + 1);
+    j++;
+  }
+  return maxL;
+};
+console.log(lengthOfLongestSubstring("abcabcbb"));
+// maximumSubarraySum
+var maximumSubarraySum = function (nums, k) {
+  let i = 0;
+  let maxsum = 0;
+  let j = 0;
+  let wsum = 0;
 
+  while (j < nums.length) {
+    wsum = wsum + nums[j];
+    if (j - i + 1 < k) {
+      j++;
+    } else if (j - i + 1 == k) {
+      maxsum = Math.max(maxsum, wsum);
+      wsum = wsum - nums[i];
+      i++;
+      j++;
+    }
+  }
+  return maxsum;
+};
+console.log(maximumSubarraySum([1, 5, 4, 2, 9, 9, 9], 3));
+
+//Longest Substring Without Repeating Characters(-1 approach best approach  )
+const lswrc = (str) => {
+  let i = 0;
+  let j = 0;
+  let maxL = 0;
+  let lastSeen = new Array(128).fill(-1);
+  while (j < str.length) {
+    let char = str.charCodeAt(j);
+
+    if (lastSeen[char] >= i) {
+      i = lastSeen[char] + 1; // direct jmp 
+    }
+    lastSeen[char] = j;
+    maxL = Math.max(maxL, j - i + 1);
+    j++;
+  }
+  return maxL;
+};
+console.log(lswrc("bbbbb"));
