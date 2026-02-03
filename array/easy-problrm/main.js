@@ -361,7 +361,8 @@ const lengthOfLongestSubstring = (arr) => {
   return maxL;
 };
 console.log(lengthOfLongestSubstring("abcabcbb"));
-// maximumSubarraySum
+
+// maximum Subarray Sum
 var maximumSubarraySum = function (nums, k) {
   let i = 0;
   let maxsum = 0;
@@ -393,7 +394,7 @@ const lswrc = (str) => {
     let char = str.charCodeAt(j);
 
     if (lastSeen[char] >= i) {
-      i = lastSeen[char] + 1; // direct jmp 
+      i = lastSeen[char] + 1; // direct jmp
     }
     lastSeen[char] = j;
     maxL = Math.max(maxL, j - i + 1);
@@ -402,3 +403,20 @@ const lswrc = (str) => {
   return maxL;
 };
 console.log(lswrc("bbbbb"));
+
+// Product of Array Except Self
+const productExceptSelf = (nums)=>{
+const ans = new Array(nums.length).fill(1);
+let prefix = 1;
+for(let i = 0 ; i < nums.length ; i ++){
+  ans[i] = prefix;
+  prefix = prefix*nums[i];
+}
+let suffix  = 1;
+for(let i = nums.length-1 ; i >=0 ; i--){
+  ans[i] *= suffix;
+  suffix = suffix * nums[i];
+}
+return ans;
+}
+console.log(productExceptSelf([1,2,3,4]));
