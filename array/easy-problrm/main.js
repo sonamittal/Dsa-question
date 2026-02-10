@@ -421,3 +421,18 @@ const productExceptSelf = (nums) => {
   return ans;
 };
 console.log(productExceptSelf([1, 2, 3, 4]));
+//Container With Most Water
+const maxArea = (nums) => {
+  let left = 0;
+  let right = nums.length - 1;
+  let maxwater = 0;
+  while (left < right) {
+    let width = right - left;
+    let height = Math.min(nums[left], nums[right]);
+    let currentWater = height * width;
+    maxwater = Math.max(maxwater, currentWater);
+    nums[left] < nums[right] ? left++ : right--;
+  }
+  return maxwater;
+};
+console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
