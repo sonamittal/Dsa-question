@@ -436,3 +436,18 @@ const maxArea = (nums) => {
   return maxwater;
 };
 console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+
+//Maximum Subarray Sum - Kadane's Algorithm
+const maxSubarraySum = (nums) => {
+  let maxSum = -Infinity;
+  let currSum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    currSum = currSum + nums[i];
+    maxSum = Math.max(currSum, maxSum);
+    if (currSum < 0) {
+      currSum = 0;
+    }
+  }
+  return maxSum;
+};
+console.log(maxSubarraySum([2, 3, -8, 7, -1, 2, 3]));
