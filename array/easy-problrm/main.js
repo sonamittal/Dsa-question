@@ -451,3 +451,26 @@ const maxSubarraySum = (nums) => {
   return maxSum;
 };
 console.log(maxSubarraySum([2, 3, -8, 7, -1, 2, 3]));
+
+// valid parentheses
+const validParentheses = (nums) => {
+  let stack = [];
+  for (let i = 0; i < nums.length; i++) {
+    let char = nums[i];
+    if (char === "(" || char === "{" || char === "[") {
+      stack.push(char);
+    } else {
+      if (stack.length === 0) return false;
+      let top = stack.pop();
+      if (
+        (char === ")" && top !== "(") ||
+        (char === "}" && top !== "{") ||
+        (char === "]" && top !== "[")
+      ) {
+        return false;
+      }
+    }
+  }
+  return stack.length === 0;
+};
+console.log(validParentheses("()"));
