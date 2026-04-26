@@ -474,3 +474,27 @@ const validParentheses = (nums) => {
   return stack.length === 0;
 };
 console.log(validParentheses("()"));
+
+//Longest Repeating Character Replacement
+const rcp = (str) => {
+  let i = 0;
+  let j = 0;
+  let maxFreq = 0;
+  let k = 1;
+  let result = 0;
+  let arr = new Array(128).fill(0);
+  while (j < str.length) {
+    let char = str.charCodeAt(j) - 65;
+    arr[char]++;
+    j++;
+    maxFreq = Math.max(maxFreq, arr[char]);
+    while (j - i - maxFreq > k) {
+      let char1 = str.charCodeAt(i) - 65;
+      arr[char1]--;
+      i++;
+    }
+    result = Math.max(result, j - i);
+  }
+  return result;
+};
+console.log(rcp("AABABBA"));
